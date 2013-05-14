@@ -1,0 +1,136 @@
+﻿@model Sogeti.PAP.BAL.Project
+
+@{
+    ViewBag.Title = "Project Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="roundedTable">
+    <caption style="text-align:left"><h3>@ViewBag.Message</h3></caption>
+    <tr>
+        <td>@Html.Label("Project Name:")</td>
+        <td>@Model.Name</td>
+        <td>@Html.Label("Client:")</td>
+        <td>@Model.Client.ClientName</td>
+        <td>@Html.Label("Project Lead:")</td>
+        <td>@Model.ProjectLead.FullName</td>
+        <td>@Html.Label("Sogeti Department:")</td>
+        <td>@Model.SogetiDepartment</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Description:")</td>
+        <td colspan="3">@Model.Description</td>
+        <td>@Html.Label("Commercial Terms:")</td>
+        <td>@Model.CommercialTermsAndConditions</td>
+        <td>@Html.Label("Review Frequency:")</td>
+        <td>@Model.ReviewFrequency</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Sogeti Practitioner:")</td>
+        <td>@Model.SogetiPractitioner.FullName</td>
+        <td>@Html.Label("Account Manager:")</td>
+        <td>@Model.AccountManager.FullName</td>
+        <td>@Html.Label("Delivery Manager:")</td>
+        <td>@Model.DeliveryManager.FullName</td>
+        <td>@Html.Label("Administrator:")</td>
+        <td>@Model.Administrator.FullName</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Start Date:")</td>
+        <td>@Model.StartDate.ToString("dd/MM/yyyy")</td>
+        <td>@Html.Label("End Date:")</td>
+        @if (Model.EndDate != DateTime.MinValue)
+        {
+            <td>@Model.EndDate.ToString("dd/MM/yyyy")</td>
+        }
+        <td>@Html.Label("Revised Date:")</td>
+        @if (Model.RevisedDate != DateTime.MinValue)
+        {
+            <td>@Model.RevisedDate.ToString("dd/MM/yyyy")</td>
+        }
+    </tr>
+    <tr>
+        <td >@Html.ActionLink("Status History", "ProjectHistory", new { projectID = @Model.ProjectID }, new { style = "color:blue; font:18px bold;" }) </td>
+    </tr>
+</table>
+
+<div class="containerDiv" >
+    <table class="roundedTable">
+        <caption><strong>Project Status for @Model.ProjectStatusList[0].ProjectStatusDate.ToString("dd/MM/yyyy")</strong></caption>
+        <tbody>
+            <tr>
+                <td>
+                    <table class="whitebg">
+                        <caption>Delivery</caption>
+                        <thead class="customh">
+                            <tr>
+                                <th></th>
+                                <td>Deliverables and Results</td>
+                                <td>Schedule</td>
+                                <td>Capacity Resources</td>
+                                <td>Scope</td>
+                                <td>Client Satisfaction</td>
+                                <td>Issues and Risks</td>
+                                <td>Use of Test Control</td>
+                                <td>Employee Satisfaction Issues</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="Title" style="width:10%">Status</th>
+                                <td class="@Model.ProjectStatusList[0].ProjectDelivery.DeliverablesAndResults.Status">@Model.ProjectStatusList[0].ProjectDelivery.DeliverablesAndResults.Status</td>
+                                <td class="@Model.ProjectStatusList[0].ProjectDelivery.Schedule.Status">@Model.ProjectStatusList[0].ProjectDelivery.Schedule.Status</td>
+                                <td class="@Model.ProjectStatusList[0].ProjectDelivery.CapacityResource.Status">@Model.ProjectStatusList[0].ProjectDelivery.CapacityResource.Status</td>
+                                <td class="@Model.ProjectStatusList[0].ProjectDelivery.Scope.Status">@Model.ProjectStatusList[0].ProjectDelivery.Scope.Status</td>
+                                <td class="@Model.ProjectStatusList[0].ProjectDelivery.ClientSatisfaction.Status">@Model.ProjectStatusList[0].ProjectDelivery.ClientSatisfaction.Status</td>
+                                <td class="@Model.ProjectStatusList[0].ProjectDelivery.IssuesAndRisks.Status">@Model.ProjectStatusList[0].ProjectDelivery.IssuesAndRisks.Status</td>
+                                <td class="@Model.ProjectStatusList[0].ProjectDelivery.UseOfTestControl.Status">@Model.ProjectStatusList[0].ProjectDelivery.UseOfTestControl.Status</td>
+                                <td class="@Model.ProjectStatusList[0].ProjectDelivery.EmployeeSatisfaction.Status">@Model.ProjectStatusList[0].ProjectDelivery.EmployeeSatisfaction.Status</td>
+                            </tr>
+                            <tr>
+                                <th class="Title">Comment</th>
+                                <td class="yellowbg">@Model.ProjectStatusList[0].ProjectDelivery.DeliverablesAndResults.Comment</td>
+                                <td class="yellowbg">@Model.ProjectStatusList[0].ProjectDelivery.Schedule.Comment</td>
+                                <td class="yellowbg">@Model.ProjectStatusList[0].ProjectDelivery.CapacityResource.Comment</td>
+                                <td class="yellowbg">@Model.ProjectStatusList[0].ProjectDelivery.Scope.Comment</td>
+                                <td class="yellowbg">@Model.ProjectStatusList[0].ProjectDelivery.ClientSatisfaction.Comment</td>
+                                <td class="yellowbg">@Model.ProjectStatusList[0].ProjectDelivery.IssuesAndRisks.Comment</td>
+                                <td class="yellowbg">@Model.ProjectStatusList[0].ProjectDelivery.UseOfTestControl.Comment</td>
+                                <td class="yellowbg">@Model.ProjectStatusList[0].ProjectDelivery.EmployeeSatisfaction.Comment</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+
+                <td>
+                    <table class="whitebg" style="height:200px; width:100%">
+                        <caption>Business Development</caption>
+                        <thead class="customh">
+                            <tr>
+                                <td>Known Opportunity</td>
+                                <td>Client Contact</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="@Model.ProjectStatusList[0].ProjectBusinessDevelopment.KnownOpportunity.Status">@Model.ProjectStatusList[0].ProjectBusinessDevelopment.KnownOpportunity.Status</td>
+                                <td class="@Model.ProjectStatusList[0].ProjectBusinessDevelopment.ClientContact.Status">@Model.ProjectStatusList[0].ProjectBusinessDevelopment.ClientContact.Status</td>
+                            </tr>
+                            <tr>
+
+                                <td class="yellowbg">@Model.ProjectStatusList[0].ProjectBusinessDevelopment.KnownOpportunity.Comment</td>
+                                <td class="yellowbg">@Model.ProjectStatusList[0].ProjectBusinessDevelopment.ClientContact.Comment</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    @using (Html.BeginForm("NewProjectStatus", "Home", FormMethod.Post)) {
+        <input type="hidden" name="ProjectId" value="@Model.ProjectID" />
+        <input type="submit" value="Add New Status" class="roundedButton">
+    }
+</div>
+

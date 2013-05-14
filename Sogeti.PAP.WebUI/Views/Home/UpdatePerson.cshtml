@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Update Person";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#PersonList").change(function () {
+            var selectedPersonID = { personID: $("#PersonList").val() };
+            $.ajax({
+                url: '@Url.Action("GetPersonData", "Home")',
+                type: 'Post',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify(selectedPersonID),
+                success: function (data) {
+                    if (data.success) {
+                        document.getElementById("PersonFirstName").value = data.firstName;
+                        document.getElementById("PersonLastName").value = data.lastName;
+                    }
+                    else {
+                        alert('invalid ID' + data.success);
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+@using (Html.BeginForm("UpdateExistingPerson", "Home", FormMethod.Post))
+{
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js">
+    </script>
+    
+    <table class="roundedTable">
+        <caption style="text-align:left"><h3>@ViewBag.Message</h3></caption>
+        <tr>
+            <td>@Html.Label("Please select person")</td>
+            <td>@Html.DropDownList("PersonList", null, new {id="PersonList"})</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("First Name")</td>
+            <td>@Html.TextBox("FirstName", null, new {id="PersonFirstName"})</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Last Name")</td>
+            <td>@Html.TextBox("LastName", null, new {id="PersonLastName"})</td>
+        </tr>
+    </table>
+    <input type="submit" value="Update Person" class="roundedButton"/>
+}

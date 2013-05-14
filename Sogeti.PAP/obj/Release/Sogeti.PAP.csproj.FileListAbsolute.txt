@@ -1,0 +1,5 @@
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\Sogeti.PAP\obj\Release\Sogeti.PAP.csprojResolveAssemblyReference.cache
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\Sogeti.PAP\bin\Release\Sogeti.PAP.dll
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\Sogeti.PAP\bin\Release\Sogeti.PAP.pdb
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\Sogeti.PAP\obj\Release\Sogeti.PAP.dll
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\Sogeti.PAP\obj\Release\Sogeti.PAP.pdb

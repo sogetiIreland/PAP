@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "NewPerson";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("AddNewPerson", "Home", FormMethod.Post)) {
+<table class="roundedTable" style="width: 75%;">
+    <caption style="text-align:left"><h3>@ViewBag.Message</h3></caption>
+    <tr>
+        <td>@Html.Label("First Name:")</td>
+        <td><input type="text" name="FirstName" placeholder="Enter first name here"/></td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Last Name:")</td>
+        <td><input type="text" name="LastName" placeholder="Enter last name here"/></td>
+    </tr>
+</table>
+    <input type="submit" value="Add Person" class="roundedButton">
+}

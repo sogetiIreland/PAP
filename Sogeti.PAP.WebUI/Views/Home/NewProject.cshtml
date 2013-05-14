@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "New Project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("AddNewProject", "Home", FormMethod.Post)) {
+<table class="roundedTable" style="border-collapse:separate;">
+    <tr>
+        <td>
+            <caption style="text-align:left">
+                <h3>@ViewBag.Message</h3>
+            </caption>
+        </td>
+    </tr>
+    <tr>
+        <th style="width:23%">@Html.Label("Project Name:")</th>
+        <td style="width:23%"><input type="text" name="ProjectName" style="width:100%" placeholder="Enter project name"/></td>
+        <td style="width:8%">&nbsp;</td>
+        <th style="width:23%">@Html.Label("Client:")</th>
+        <td style="width:23%">@Html.DropDownList("ClientList")</td>
+    </tr>
+    <tr>
+        <th style="width:23%">@Html.Label("Project Lead")</th>
+        <td style="width:23%">@Html.DropDownList("ProjectLeadList", null, new { name = "ProjectLead" })</td>
+        <td style="width:8%">&nbsp;</td>
+        <th style="width:23%">@Html.Label("Sogeti Service Line")</th>
+        <td style="width:23%">@Html.DropDownList("DepartmentList", null, new { name = "Department" })</td>
+    </tr>
+    <tr>
+        <th>@Html.Label("Description:")</th>
+        <td colspan="3"><input type="text" name="ProjectDescription" style="width:100%" placeholder="Enter project description"/></td>
+    </tr>
+        <tr>
+        <th style="width:23%">@Html.Label("Commercial Terms")</th>
+        <th style="width:23%">@Html.DropDownList("CommercialTermsList", null, new { name = "CommercialTerms" })</th>
+        <td style="width:8%">&nbsp;</td>
+        <th style="width:23%">@Html.Label("Review Frequency")</th>
+        <th style="width:23%">@Html.DropDownList("ReviewFrequencyList", null, new { name = "ReviewFrequency" })</th>
+    </tr>
+
+    <tr>
+        <th style="width:23%">@Html.Label("Sogeti Practitioner:")</th>
+        <td style="width:23%">@Html.DropDownList("SogetiPractitionerList", null, new { name = "ProjectSogetiPractitioner" })</td>
+        <td style="width:8%">&nbsp;</td>
+        <th style="width:23%">@Html.Label("Account Manager:")</th>
+        <td style="width:23%">@Html.DropDownList("AccountManagerList", null, new { name = "ProjectAccountManager" })</td>
+    </tr>
+    <tr>
+        <th style="width:23%">@Html.Label("Delivery Manager:")</th>
+        <td style="width:23%">@Html.DropDownList("DeliveryManagerList", null, new { name = "ProjectDeliveryManager" })</td>
+        <td style="width:8%">&nbsp;</td>
+        <th style="width:23%">@Html.Label("Administrator:")</th>
+        <td style="width:23%">@Html.DropDownList("AdministratorList", null, new { name = "ProjectAdministrator" })</td>
+    </tr>
+    <tr>
+        <th style="width:23%">@Html.Label("Start Date:")</th>
+        @*<td>@Html.TextBoxFor(model => model.StartDate, new { @class = "datepicker" })</td>*@
+        <td style="width:23%"><input type="text" name="ProjectStartDate" placeholder="Select start date" class="datepicker"/></td>
+        <td style="width:8%">&nbsp;</td>
+        <th style="width:23%">@Html.Label("End Date:")</th>
+        <td style="width:23%"><input type="text" name="ProjectEndDate" placeholder="Select end date" class="datepicker"/></td>
+    </tr>
+</table>
+    <input type="submit" value="Add Project" class="roundedButton">
+}
+ 
+<script>
+    $(".datepicker").datepicker({ dateFormat: 'dd/mm/yy' });
+</script>

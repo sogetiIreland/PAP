@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.PAP", "Sogeti.PAP\Sogeti.PAP.csproj", "{8A8376CA-4CEC-48FF-9087-3C59058FB9E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sogeti.PAP.WebUI", "Sogeti.PAP.WebUI\Sogeti.PAP.WebUI.csproj", "{A27B3960-E244-4086-A814-14F678CF8E91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{37590D96-1B60-45BC-8C8E-8157F7B52BD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A8376CA-4CEC-48FF-9087-3C59058FB9E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A8376CA-4CEC-48FF-9087-3C59058FB9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A8376CA-4CEC-48FF-9087-3C59058FB9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A8376CA-4CEC-48FF-9087-3C59058FB9E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A27B3960-E244-4086-A814-14F678CF8E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A27B3960-E244-4086-A814-14F678CF8E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A27B3960-E244-4086-A814-14F678CF8E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A27B3960-E244-4086-A814-14F678CF8E91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37590D96-1B60-45BC-8C8E-8157F7B52BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37590D96-1B60-45BC-8C8E-8157F7B52BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37590D96-1B60-45BC-8C8E-8157F7B52BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37590D96-1B60-45BC-8C8E-8157F7B52BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

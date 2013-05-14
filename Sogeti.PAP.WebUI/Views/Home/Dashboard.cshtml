@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Projects & Proposals";
+}
+@section featured {
+}
+<h3>Projects</h3>
+<div>
+    <table class="roundedTable">
+        <thead class="frontTable">
+            <tr>
+                <th>Client/Project</th>
+                <th>Lead</th>
+                <th>Commercial TC</th>
+                <th>Review Frequency</th>
+                <th>Deliverables & Results</th>
+                <th>Schedule</th>
+                <th>Capacity / Resources</th>
+                <th>Scope</th>
+                <th>Client Satisfaction</th>
+                <th>Issues & Risks</th>
+                <th>Use of TMap</th>
+                <th>Employee Satisfaction</th>
+                <th>Known Opportunities</th>
+                <th>Client Contact</th>
+            </tr>
+        </thead>
+        <tbody class="frontTblBody">
+            @foreach (var project in ViewBag.Projects)
+            {
+                String projectName = project.Name;
+                String projectId = Convert.ToString(project.ProjectID);
+                String Front = "Front";
+            <tr>
+                <td>@Html.ActionLink(@projectName, "ProjectDetails", new { ProjectList = projectId })</td>
+                <td>@project.ProjectLead.FullName</td>
+                <td>@project.CommercialTermsAndConditions</td>
+                <td>@project.ReviewFrequency</td>
+                <td class="@project.ProjectStatusList[0].ProjectDelivery.DeliverablesAndResults.Status@Front rotate"></td>
+                <td class="@project.ProjectStatusList[0].ProjectDelivery.Schedule.Status@Front rotate"></td>
+                <td class="@project.ProjectStatusList[0].ProjectDelivery.CapacityResource.Status@Front rotate"></td>
+                <td class="@project.ProjectStatusList[0].ProjectDelivery.Scope.Status@Front rotate"></td>
+                <td class="@project.ProjectStatusList[0].ProjectDelivery.ClientSatisfaction.Status@Front rotate"></td>
+                <td class="@project.ProjectStatusList[0].ProjectDelivery.IssuesAndRisks.Status@Front rotate"></td>
+                <td class="@project.ProjectStatusList[0].ProjectDelivery.UseOfTestControl.Status@Front rotate"></td>
+                <td class="@project.ProjectStatusList[0].ProjectDelivery.EmployeeSatisfaction.Status@Front rotate"></td>
+                <td class="@project.ProjectStatusList[0].ProjectBusinessDevelopment.KnownOpportunity.Status@Front rotate"></td>
+                <td class="@project.ProjectStatusList[0].ProjectBusinessDevelopment.ClientContact.Status@Front rotate"></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,61 @@
+﻿@model Sogeti.PAP.BAL.Project
+
+@{
+    ViewBag.Title = "ProjectHistory";
+}
+<h3>Project Status History</h3>
+    <table class="roundedTable" style="width:100%">
+        <thead class="frontTable">
+            <tr>
+                <th rowspan="3">Date</th>
+                <th colspan="8" style="text-align:center;">DELIVERY</th>
+                <th colspan="2" style="text-align:center">BUSINESS DEVELOPMENT</th>
+            </tr>
+            <tr>
+                @*<th style="width:9%;">Date</th>*@
+                <th style="width:9%;">Deliverables & Results</th>
+                <th style="width:9%;">Schedule</th>
+                <th style="width:9%;">Capacity / Resources</th>
+                <th style="width:9%;">Scope</th>
+                <th style="width:9%;">Client Satisfaction</th>
+                <th style="width:9%;">Issues & Risks</th>
+                <th style="width:9%;">Use of TMap</th>
+                <th style="width:9%;">Employee Satisfaction</th>
+                <th style="width:9%;">Known Opportunities</th>
+                <th style="width:10%;">Client Contact</th>
+            </tr>
+        </thead>
+    </table>
+<div style="height:350px; overflow:auto;">
+    <table class="roundedTable" style="width:100%;">
+        <tbody>
+            @foreach (var status in Model.ProjectStatusList){
+               <tr >
+                    <td rowspan="2" style=" width:9%;">@status.ProjectStatusDate.ToString("dd/MM/yyyy")</td>
+                    <td class="@status.ProjectDelivery.DeliverablesAndResults.Status" style=" width:9.1%;">@status.ProjectDelivery.DeliverablesAndResults.Status</td>
+                    <td class="@status.ProjectDelivery.Schedule.Status" style=" width:9%;">@status.ProjectDelivery.Schedule.Status</td>
+                    <td class="@status.ProjectDelivery.CapacityResource.Status" style=" width:9%;">@status.ProjectDelivery.CapacityResource.Status</td>
+                    <td class="@status.ProjectDelivery.Scope.Status" style=" width:9%;">@status.ProjectDelivery.Scope.Status</td>
+                    <td class="@status.ProjectDelivery.ClientSatisfaction.Status" style=" width:9%;">@status.ProjectDelivery.ClientSatisfaction.Status</td>
+                    <td class="@status.ProjectDelivery.IssuesAndRisks.Status" style=" width:9%;">@status.ProjectDelivery.IssuesAndRisks.Status</td>
+                    <td class="@status.ProjectDelivery.UseOfTestControl.Status" style=" width:9%;">@status.ProjectDelivery.UseOfTestControl.Status</td>
+                    <td class="@status.ProjectDelivery.EmployeeSatisfaction.Status" style=" width:9%;">@status.ProjectDelivery.EmployeeSatisfaction.Status</td>
+                    <td class="@status.ProjectBusinessDevelopment.KnownOpportunity.Status" style=" width:9%;">@status.ProjectBusinessDevelopment.KnownOpportunity.Status</td>
+                    <td class="@status.ProjectBusinessDevelopment.ClientContact.Status" style=" width:9%;">@status.ProjectBusinessDevelopment.ClientContact.Status</td>
+                </tr>
+                <tr style="border-bottom: solid 1px grey;">
+                    <td style=" width:9.1%;">@status.ProjectDelivery.DeliverablesAndResults.Comment</td>
+                    <td style=" width:9%;">@status.ProjectDelivery.Schedule.Comment</td>
+                    <td style=" width:9%;">@status.ProjectDelivery.CapacityResource.Comment</td>
+                    <td style=" width:9%;">@status.ProjectDelivery.Scope.Comment</td>
+                    <td style=" width:9%;">@status.ProjectDelivery.ClientSatisfaction.Comment</td>
+                    <td style=" width:9%;">@status.ProjectDelivery.IssuesAndRisks.Comment</td>
+                    <td style=" width:9%;">@status.ProjectDelivery.UseOfTestControl.Comment</td>
+                    <td style=" width:9%;">@status.ProjectDelivery.EmployeeSatisfaction.Comment</td>
+                    <td style=" width:9%;">@status.ProjectBusinessDevelopment.KnownOpportunity.Comment</td>
+                    <td style=" width:9%;">@status.ProjectBusinessDevelopment.ClientContact.Comment</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

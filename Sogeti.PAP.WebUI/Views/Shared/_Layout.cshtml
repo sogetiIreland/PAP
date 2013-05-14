@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        @*<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-1.8.2.js"></script>
+        <script src="~/Scripts/jquery-ui-1.9.2.js"></script>
+        <link href="~/Content/themes/base/jquery.ui.datepicker.css" rel="stylesheet" />
+        <script>
+            $(function () {
+                $("#datepicker").datepicker();
+            });
+        </script>*@
+        <script>
+            sfHover = function () {
+                var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+                for (var i = 0; i < sfEls.length; i++) {
+                    sfEls[i].onmouseover = function () {
+                        this.className += " sfhover";
+                    }
+                    sfEls[i].onmouseout = function () {
+                        this.className = this.className.replace(new RegExp(" sfhover\\b"), "");
+                    }
+                }
+            }
+            if (window.attachEvent) window.attachEvent("onload", sfHover);
+        </script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+            
+        <title>@ViewBag.Title - Projects & Proposals MIS</title>
+@*        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />*@
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div style="border-bottom-style:groove; border-left-style:groove; border-right-style:groove;border-width:10px; border-color:silver;">
+            <table style="width:100%">
+                <tr>
+                    <td style="width:20%">@Html.ActionLink(" ", "Index", "Home", new 
+                     { style = "background: url('" + Url.Content("~/images/logo.png") + "')  no-repeat; display:block; height:39px; width:224px;" })</td>
+                    <td style=""><h1>PROJECTS AND PROPOSALS</h1></td>
+                </tr>
+            </table>
+        </div>
+        <div  style="border-top-style:groove; border-bottom-style:groove; border-left-style:groove; border-right-style:groove;border-width:10px; border-color:silver; height:540px;">
+            <table style="width:100%">
+                <tr>
+                    <td style="height:10px; width:80%; border:groove 5px Silver;">
+                        <ul id="nav">
+                            <li>@Html.ActionLink("Home", "Dashboard", "Home")</li>
+                            <li>Projects
+                                <ul>
+                                    <li>@Html.ActionLink("New Project", "NewProject", "Home")</li>
+                                    <li>@Html.ActionLink("Update Project", "UpdateProject", "Home")</li>
+                                </ul>
+                            </li>
+                            <li>Client
+                                <ul>
+                                    <li>@Html.ActionLink("New Client", "NewClient", "Home")</li>
+                                    <li>@Html.ActionLink("Update Client", "UpdateClient", "Home")</li>
+                                </ul>
+                            </li>
+                            <li>Person
+                                <ul>
+                                    <li>@Html.ActionLink("New Person", "NewPerson", "Home")</li>
+                                    <li>@Html.ActionLink("Update Person", "UpdatePerson", "Home")</li>
+                                </ul>
+                            </li>
+                            <li>Report
+                                <ul>@Html.ActionLink("Portfolio Report", "PortfolioReport", new { serviceLine = '_' })</ul>
+                            </li>
+                        </ul>
+                    </td>
+                    <td style="height:20%; border:groove 5px Silver;">
+                        @Session["UserName"]<br />
+                        @System.DateTime.Today.ToString("dd/MM/yyyy")
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @RenderSection("featured", required: false)
+                        <section class="content-wrapper main-content clear-fix">
+                            @RenderBody()
+                        </section>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="border-top-style:groove; border-bottom-style:groove; border-left-style:groove; border-right-style:groove;border-width:10px; border-color:silver;">
+            <p>&copy; @DateTime.Now.Year - Sogeti Ireland</p>
+        </div>
+
+
+@*
+        <div id="body">
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - Sogeti Ireland</p>
+                </div>
+            </div>
+        </footer>*@
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

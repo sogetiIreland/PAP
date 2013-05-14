@@ -1,0 +1,210 @@
+﻿@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ClientID").change(function () {
+            var filters = {
+                clientID: $("#ClientID").val(),
+                accountManager: $("#accountManager").val(),
+                deliveryManager: $("#deliveryManager").val(),
+                lead: $("#lead").val(),
+                serviceLine: $("#serviceLine").val(),
+                commercialTC: $("#commTerms").val(),
+                reviewFrequency: $("#reviewFrequency").val()
+            };
+
+            $.ajax({
+                url: '@Url.Action("RefreshPortfolioReport", "Home")',
+                contentType: 'application/json',
+                type: 'Post',
+                dataType: 'json',
+                data: JSON.stringify(filters),
+                success: function (data) {
+                    $("#reportContent").html(data.htmlCode);
+                }
+            });
+        });
+
+        //Service Line change
+        $("#serviceLine").change(function () {
+            var filters = {
+                clientID: $("#ClientID").val(),
+                accountManager: $("#accountManager").val(),
+                deliveryManager: $("#deliveryManager").val(),
+                lead: $("#lead").val(),
+                serviceLine: $("#serviceLine").val(),
+                commercialTC: $("#commTerms").val(),
+                reviewFrequency: $("#reviewFrequency").val()
+            };
+
+            $.ajax({
+                url: '@Url.Action("RefreshPortfolioReport", "Home")',
+                contentType: 'application/json',
+                type: 'Post',
+                dataType: 'json',
+                data: JSON.stringify(filters),
+                success: function (data) {
+                    $("#reportContent").html(data.htmlCode);
+                }
+            });
+                });
+
+
+        //AccountManager change
+        $("#accountManager").change(function () {
+            var filters = {
+                clientID: $("#ClientID").val(),
+                accountManager: $("#accountManager").val(),
+                deliveryManager: $("#deliveryManager").val(),
+                lead: $("#lead").val(),
+                serviceLine: $("#serviceLine").val(),
+                commercialTC: $("#commTerms").val(),
+                reviewFrequency: $("#reviewFrequency").val()
+            };
+
+            $.ajax({
+                url: '@Url.Action("RefreshPortfolioReport", "Home")',
+                contentType: 'application/json',
+                type: 'Post',
+                dataType: 'json',
+                data: JSON.stringify(filters),
+                success: function (data) {
+                    $("#reportContent").html(data.htmlCode);
+                }
+            });
+        });
+
+
+        //Delivery Manager Change
+        $("#deliveryManager").change(function () {
+            var filters = {
+                clientID: $("#ClientID").val(),
+                accountManager: $("#accountManager").val(),
+                deliveryManager: $("#deliveryManager").val(),
+                lead: $("#lead").val(),
+                serviceLine: $("#serviceLine").val(),
+                commercialTC: $("#commTerms").val(),
+                reviewFrequency: $("#reviewFrequency").val()
+            };
+
+            $.ajax({
+                url: '@Url.Action("RefreshPortfolioReport", "Home")',
+                contentType: 'application/json',
+                type: 'Post',
+                dataType: 'json',
+                data: JSON.stringify(filters),
+                success: function (data) {
+                    $("#reportContent").html(data.htmlCode);
+                }
+            });
+        });
+
+
+        //Lead change
+        $("#lead").change(function () {
+            var filters = {
+                clientID: $("#ClientID").val(),
+                accountManager: $("#accountManager").val(),
+                deliveryManager: $("#deliveryManager").val(),
+                lead: $("#lead").val(),
+                serviceLine: $("#serviceLine").val(),
+                commercialTC: $("#commTerms").val(),
+                reviewFrequency: $("#reviewFrequency").val()
+            };
+
+            $.ajax({
+                url: '@Url.Action("RefreshPortfolioReport", "Home")',
+                contentType: 'application/json',
+                type: 'Post',
+                dataType: 'json',
+                data: JSON.stringify(filters),
+                success: function (data) {
+                    $("#reportContent").html(data.htmlCode);
+                }
+            });
+        });
+
+
+        //Commercial Terms and conditions
+        $("#commTerms").change(function () {
+            var filters = {
+                clientID: $("#ClientID").val(),
+                accountManager: $("#accountManager").val(),
+                deliveryManager: $("#deliveryManager").val(),
+                lead: $("#lead").val(),
+                serviceLine: $("#serviceLine").val(),
+                commercialTC: $("#commTerms").val(),
+                reviewFrequency: $("#reviewFrequency").val()
+            };
+
+            $.ajax({
+                url: '@Url.Action("RefreshPortfolioReport", "Home")',
+                contentType: 'application/json',
+                type: 'Post',
+                dataType: 'json',
+                data: JSON.stringify(filters),
+                success: function (data) {
+                    $("#reportContent").html(data.htmlCode);
+                }
+            });
+        });
+
+
+        //Review Freq change
+        $("#reviewFrequency").change(function () {
+            var filters = {
+                clientID: $("#ClientID").val(),
+                accountManager: $("#accountManager").val(),
+                deliveryManager: $("#deliveryManager").val(),
+                lead: $("#lead").val(),
+                serviceLine: $("#serviceLine").val(),
+                commercialTC: $("#commTerms").val(),
+                reviewFrequency: $("#reviewFrequency").val()
+            };
+
+            $.ajax({
+                url: '@Url.Action("RefreshPortfolioReport", "Home")',
+                contentType: 'application/json',
+                type: 'Post',
+                dataType: 'json',
+                data: JSON.stringify(filters),
+                success: function (data) {
+                    $("#reportContent").html(data.htmlCode);
+                }
+            });
+        });
+
+    });
+</script>
+
+<h3>Report</h3>
+<div>
+    <table>
+        <tr>
+            <td>Client</td>
+            <td>@Html.DropDownList("ClientList", null, new {id = "ClientID"})</td>
+            <td>Account Manager</td>
+            <td>@Html.DropDownList("AccountManager", null, new {id = "accountManager"})</td>
+            <td>Delivery Manager</td>
+            <td>@Html.DropDownList("DeliveryManager", null, new {id = "deliveryManager"})</td>
+            <td>Lead</td>
+            <td>@Html.DropDownList("Lead", null, new {id="lead"})</td>
+            <td>ServiceLine</td>
+            <td>@Html.DropDownList("ServiceLine", null, new {id="serviceLine"}) </td>
+            <td>Commercial Terms</td>
+            <td>@Html.DropDownList("commercialTC", null, new {id = "commTerms"})</td>
+            <td>Review Frequency</td>
+            <td>@Html.DropDownList("ReivewFrequency", null, new {id = "reviewFrequency"})</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <h2>List</h2>
+    <div id="reportContent">
+        @Html.Action("PartialView1", new { clientID = 0, accountManager = 0, deliveryManager = 0,
+       lead = 0, serviceLine = "_", commTerms = '_', reviewFrequency = '_' })
+    </div>
+</div>

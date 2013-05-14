@@ -1,0 +1,11 @@
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\TestProject\bin\Release\TestProject.exe.config
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\TestProject\bin\Release\TestProject.exe
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\TestProject\bin\Release\TestProject.pdb
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\TestProject\bin\Release\Sogeti.PAP.dll
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\TestProject\bin\Release\Sogeti.PAP.pdb
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\TestProject\obj\Release\TestProject.csprojResolveAssemblyReference.cache
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\TestProject\obj\Release\TestProject.Form1.resources
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\TestProject\obj\Release\TestProject.Properties.Resources.resources
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\TestProject\obj\Release\TestProject.csproj.GenerateResource.Cache
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\TestProject\obj\Release\TestProject.exe
+C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\TestProject\obj\Release\TestProject.pdb

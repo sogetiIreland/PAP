@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>Username</td>
+                <td>@Html.TextBox("username", null, new {id = "username"})</td>
+                <td>@Html.Label("Invalid User Name")</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>@Html.Password("password", null, new {id = "password"})</td>
+                <td>@Html.Label("Invalid Password")</td>
+            </tr>
+            <tr>
+                <td><input type="submit" title="Login" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

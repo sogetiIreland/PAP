@@ -1,0 +1,138 @@
+﻿@{
+    Layout = null;
+}
+    <head>
+        <meta charset="utf-8" />
+                <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var returnType;
+                $("#loginButton").click(function (e) {
+                    e.preventDefault();
+                    var loginDetails = { 
+                        loginName: $("#username").val(),
+                        password: $("#password").val()
+                    };
+                    $.ajax({
+                        url: '@Url.Action("VerifyLoginDetails", "Home")',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        data: JSON.stringify(loginDetails),
+                        success: function (data) {
+                            if (data.success) {
+                                if (data.loginAuthentication == 1) {
+                                    window.location.href = "/Home/Dashboard";
+                                }
+                                else if (data.loginAuthentication == -2) {
+                                    //$("#password").attr("style", "display:block;");
+                                    document.getElementById("userLabel").style.display = "none";
+                                    document.getElementById("passwordLabel").style.display = "block";
+                                    //alert("incorrect password");
+                                    return false;
+                                }
+                                else if (data.loginAuthentication == -1) {
+                                    document.getElementById("userLabel").style.display = "block";
+                                    document.getElementById("passwordLabel").style.display = "none";
+                                    //$("#username").attr("style", "display:block;");
+                                    //alert("incorrect un");
+                                    return false;
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+        <script>
+            sfHover = function () {
+                var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+                for (var i = 0; i < sfEls.length; i++) {
+                    sfEls[i].onmouseover = function () {
+                        this.className += " sfhover";
+                    }
+                    sfEls[i].onmouseout = function () {
+                        this.className = this.className.replace(new RegExp(" sfhover\\b"), "");
+                    }
+                }
+            }
+            if (window.attachEvent) window.attachEvent("onload", sfHover);
+
+        </script>
+            
+        <title>@ViewBag.Title - Projects & Proposals MIS</title>
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+<body>
+    @using (Html.BeginForm("LoginRedirect", "Home", FormMethod.Post))
+    {
+        <div style="border-bottom-style:groove; border-left-style:groove; border-right-style:groove;border-width:10px; border-color:silver;">
+            <table style="width:100%">
+                <tr>
+                    <td style="width:20%">@Html.ActionLink(" ", "Index", "Home", new 
+                     { style = "background: url('" + Url.Content("~/images/logo.png") + "')  no-repeat; display:block; height:39px; width:224px;" })</td>
+                    <td style=""><h1>PROJECTS AND PROPOSALS</h1></td>
+                </tr>
+            </table>
+        </div>
+        <div  style="border-top-style:groove; border-bottom-style:groove; border-left-style:groove; border-right-style:groove;border-width:10px; border-color:silver; height:540px;">
+            <table style="width:100%">
+                <tr>
+                    <td style="height:10px; border:groove 5px Silver;">
+                        <ul id="nav">
+                            <li>@Html.ActionLink("Home", "Dashboard", "Home")</li>
+                            <li>Projects
+                                <ul>
+                                    <li>@Html.ActionLink("New Project", "NewProject", "Home")</li>
+                                    <li>@Html.ActionLink("Update Project", "UpdateProject", "Home")</li>
+                                </ul>
+                            </li>
+                            <li>Client
+                                <ul>
+                                    <li>@Html.ActionLink("New Client", "NewClient", "Home")</li>
+                                    <li>@Html.ActionLink("Update Client", "UpdateClient", "Home")</li>
+                                </ul>
+                            </li>
+                            <li>Person
+                                <ul>
+                                    <li>@Html.ActionLink("New Person", "NewPerson", "Home")</li>
+                                    <li>@Html.ActionLink("Update Person", "UpdatePerson", "Home")</li>
+                                </ul>
+                            </li>
+                            <li>Report
+                                <ul>@Html.ActionLink("Portfolio Report", "PortfolioReport", new { serviceLine = 't' })</ul>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="vertical-align:central;">
+                            <tr>
+                                <td>Username</td>
+                                <td>@Html.TextBox("username", null, new {id = "username"})</td>
+                                <td>@Html.Label("Invalid User Name", new { id = "userLabel", style = "display:none; color:Red;" })</td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td>@Html.Password("password", null, new {id = "password"})</td>
+                                <td>@Html.Label("Invalid Password", new { id = "passwordLabel", style = "display:none; color:Red;" })</td>
+                            </tr>
+                            <tr>
+                                <td><input type="submit" value="Login" class="RoundedButton" id="loginButton" /></td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="border-top-style:groove; border-bottom-style:groove; border-left-style:groove; border-right-style:groove;border-width:10px; border-color:silver;">
+            <p>&copy; @DateTime.Now.Year - Sogeti Ireland</p>
+        </div>
+    }
+    </body>

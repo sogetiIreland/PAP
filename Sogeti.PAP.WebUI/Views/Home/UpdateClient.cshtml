@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Update Client";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ClientList").change(function () {
+            var selectedClientID = { clientID: $("#ClientList").val() };
+            $.ajax({
+                url: '@Url.Action("GetClientData", "Home")',
+                type: 'Post',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify(selectedClientID),
+                success: function (data) {
+                    if (data.success) {
+                        document.getElementById("ClientName").value = data.clientName;
+                        document.getElementById("ClientAddress").value = data.clientAddress;
+                        document.getElementById("ClientContactNumber").value = data.clientContact;
+                    }
+                    else {
+                        alert('invalid ID' + data.success);
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+@using (Html.BeginForm("UpdateExistingClient", "Home", FormMethod.Post))
+{
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js">
+    </script>
+    <table class="roundedTable">
+        <caption style="text-align:left"><h3>@ViewBag.Message</h3></caption>
+        <tr>
+            <td>Please select client</td>
+            <td>@Html.DropDownList("ClientList", null, new {id="ClientList"})</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Name")</td>
+            <td>@Html.TextBox("ClientName", null, new {id="ClientName"})</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Address")</td>
+            <td>@Html.TextBox("Address", null, new {id="ClientAddress"})</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Contact Number")</td>
+            <td>@Html.TextBox("ContactNumber", null, new {id = "ClientContactNumber"})</td>
+        </tr>
+    </table>
+    <input type="submit" value="Update Client" class="roundedButton" />
+}

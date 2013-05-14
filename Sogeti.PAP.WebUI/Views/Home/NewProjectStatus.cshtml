@@ -1,0 +1,132 @@
+﻿@model Sogeti.PAP.BAL.Project
+
+@{
+    ViewBag.Title = "Project Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<table class="roundedTable">
+    <tr>
+        <td>@Html.Label("Project Name:")</td>
+        <td>@Model.Name</td>
+        <td>@Html.Label("Client:")</td>
+        <td>@Model.Client.ClientName</td>
+        <td>@Html.Label("Project Lead:")</td>
+        <td>@Model.ProjectLead.FullName</td>
+        <td>@Html.Label("Sogeti Department:")</td>
+        <td>@Model.SogetiDepartment</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Description:")</td>
+        <td colspan="3">@Model.Description</td>
+        <td>@Html.Label("Commercial Terms:")</td>
+        <td>@Model.CommercialTermsAndConditions</td>
+        <td>@Html.Label("Review Frequency:")</td>
+        <td>@Model.ReviewFrequency</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Sogeti Practitioner:")</td>
+        <td>@Model.SogetiPractitioner.FullName</td>
+        <td>@Html.Label("Account Manager:")</td>
+        <td>@Model.AccountManager.FirstName</td>
+        <td>@Html.Label("Delivery Manager:")</td>
+        <td>@Model.DeliveryManager.FullName</td>
+        <td>@Html.Label("Administrator:")</td>
+        <td>@Model.Administrator.FullName</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Start Date:")</td>
+        <td>@Model.StartDate.ToString("dd/MM/yyyy")</td>
+        <td>@Html.Label("End Date:")</td>
+        @if (Model.EndDate != DateTime.MinValue)
+        {
+            <td>@Model.EndDate.ToString("dd/MM/yyyy")</td>
+        }
+        <td>@Html.Label("Revised Date:")</td>
+        @if (Model.RevisedDate != DateTime.MinValue)
+        {
+            <td>@Model.RevisedDate.ToString("dd/MM/yyyy")</td>
+        }
+        
+    </tr>
+</table>
+
+@using (Html.BeginForm("AddProjectDetails", "Home", FormMethod.Post)) {
+<div  class="containerDiv">
+    <table class="roundedTable">
+        <tbody>
+            <tr>
+                <td>
+                    <table class="whitebg" style="width:100%;">
+                        <caption>Delivery</caption>
+                        <thead class="customh">
+                            <tr>
+                                <th></th>
+                                <td>Deliverables and Results</td>
+                                <td>Schedule</td>
+                                <td>Capacity Resources</td>
+                                <td>Scope</td>
+                                <td>Client Satisfaction</td>
+                                <td>Issues and Risks</td>
+                                <td>Use of Test Control</td>
+                                <td>Employee Satisfaction Issues</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="Title" style="width:9%">Status</th>
+                                <td>@Html.DropDownList("ProjectDelivery.DeliverablesAndResults.Status", (IEnumerable<SelectListItem>) @ViewBag.StatusList)</td>
+                                <td>@Html.DropDownList("ProjectDelivery.Schedule.Status", (IEnumerable<SelectListItem>) @ViewBag.StatusList)</td>
+                                <td>@Html.DropDownList("ProjectDelivery.CapacityResources.Status", (IEnumerable<SelectListItem>) @ViewBag.StatusList)</td>
+                                <td>@Html.DropDownList("ProjectDelivery.Scope.Status", (IEnumerable<SelectListItem>) @ViewBag.StatusList)</td>
+                                <td>@Html.DropDownList("ProjectDelivery.ClientSatisfaction.Status", (IEnumerable<SelectListItem>) @ViewBag.StatusList)</td>
+                                <td>@Html.DropDownList("ProjectDelivery.IssuesAndRisks.Status", (IEnumerable<SelectListItem>) @ViewBag.StatusList)</td>
+                                <td>@Html.DropDownList("ProjectDelivery.UseOfTestControl.Status", (IEnumerable<SelectListItem>) @ViewBag.StatusList)</td>
+                                <td>@Html.DropDownList("ProjectDelivery.EmployeeSatisfactionIssues.Status", (IEnumerable<SelectListItem>) @ViewBag.StatusList)</td>
+                            </tr>
+                            <tr>
+                                <th class="Title">Comment</th>
+                                <td><textarea class="textArea" name="ProjectDelivery.DeliverablesAndResults.Comment"></textarea></td>
+                                <td><textarea class="textArea"  name="ProjectDelivery.Schedule.Comment"></textarea></td>
+                                <td><textarea class="textArea"  name="ProjectDelivery.CapacityResources.Comment" ></textarea></td>
+                                <td><textarea class="textArea"  name="ProjectDelivery.Scope.Comment"></textarea></td>
+                                <td><textarea class="textArea"  name="ProjectDelivery.ClientSatisfaction.Comment" ></textarea></td>
+                                <td><textarea class="textArea"  name="ProjectDelivery.IssuesAndRisks.Comment" ></textarea></td>
+                                <td><textarea class="textArea"  name="ProjectDelivery.UseOfTestControl.Comment" ></textarea></td>
+                                <td><textarea class="textArea"  name="ProjectDelivery.EmployeeSatisfactionIssues.Comment"></textarea></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+
+                <td>
+                    <table class="whitebg" style="width:100%">
+                        <caption>Business Development</caption>
+                        <thead class="customh">
+                            <tr>
+                                <td>Known Opportunity</td>
+                                <td>Client Contact</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.DropDownList("ProjectBusinessDevelopment.KnownOpportunity.Status", (IEnumerable<SelectListItem>) @ViewBag.StatusList)</td>
+                                <td>@Html.DropDownList("ProjectBusinessDevelopment.ClientContact.Status", (IEnumerable<SelectListItem>) @ViewBag.StatusList)</td>
+                            </tr>
+                            <tr>
+
+                                <td><textarea class="textArea" name="ProjectBusinessDevelopment.KnownOpportunity.Comment"></textarea></td>
+                                <td><textarea class="textArea" name="ProjectBusinessDevelopment.ClientContact.Comment"></textarea></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="hidden" name="ProjectId" value="@Model.ProjectID" />
+    <input type="submit" value="Submit" class="roundedButton">
+</div>
+}

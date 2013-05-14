@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Update Project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ProjectList").change(function () {  
+            var selectedProjectID = { projectID: $("#ProjectList").val() };
+            $.ajax({
+                url: '@Url.Action("GetProjectData", "Home")',
+                type: 'Post',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify(selectedProjectID),
+                success: function (data) {
+                    if (data.success) {
+                        document.getElementById("ProjectName").value = data.projectName;
+                        document.getElementById("ProjectDescription").value = data.projectDescription;
+                        document.getElementById("ClientList").value = data.client;
+                        document.getElementById("SogetiPractitioner").value = data.practitioner;
+                        document.getElementById("AccountManager").value = data.accountManager;
+                        document.getElementById("DeliveryManager").value = data.deliveryManager;
+                        document.getElementById("Administrator").value = data.administrator;
+                        document.getElementById("ProjectStartDate").value = data.startDate;
+                        document.getElementById("ProjectEndDate").value = data.endDate;
+                        //document.getElementById("").value = data.;
+                        document.getElementById("Lead").value = data.lead;
+                        document.getElementById("ReviewFrequency").value = data.reviewFreq;
+                        document.getElementById("CommercialTC").value = data.commercialTC;
+                        document.getElementById("ServiceLine").value = data.serviceLine;
+                    }
+                    else {
+                        alert('invalid ID' + data.success);
+                    }
+                }
+            });
+        });
+    });
+
+</script>
+
+@using (Html.BeginForm("UpdateExistingProject", "Home", FormMethod.Post))
+{
+    @*<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js">
+    </script>*@
+    
+    <table class="roundedTable">
+        <tr>
+            <caption style="text-align:left;">
+                <h3>@ViewBag.Message</h3>
+            </caption>
+        </tr>
+        <caption>
+            <div>
+                @Html.Label("Please select Project") 
+                @Html.DropDownList("ProjectList", null, new {id="ProjectList"})
+            </div>
+        </caption>
+        <tr>
+            <td colspan="4">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan ="4">&nbsp;</td>
+        </tr>
+        <tr>
+            <th style="width:23%">@Html.Label("Project Name")</th>
+            <td style="width:23%">@Html.TextBox("ProjectName", null, new {id = "ProjectName"})</td>
+            <td style="width:8%">&nbsp;</td>
+            <th style="width:23%">@Html.Label("Client")</th>
+            <td style="width:23%">@Html.DropDownList("ClientList", null, new {id = "ClientList"})</td>
+        </tr>
+        <tr>
+            <th>@Html.Label("Lead")</th>
+            <td>@Html.DropDownList("Lead", null, new {id = "Lead"})</td>
+            <td style="width:8%">&nbsp;</td>
+            <th>@Html.Label("Sogeti Service Line")</th>
+            <td>@Html.DropDownList("ServiceLine", null, new {id = "ServiceLine"})</td>
+        </tr>
+        <tr>
+            <th>@Html.Label("Project Description")</th>
+            <td>@Html.TextBox("ProjectDescription", null, new {id = "ProjectDescription"})</td>
+            <td style="width:8%">&nbsp;</td>
+        </tr>
+        <tr>
+            <th>@Html.Label("Commercial Terms and conditions")</th>
+            <td>@Html.DropDownList("CommercialTC", null, new {id = "CommercialTC"})</td>
+            <td style="width:8%">&nbsp;</td>
+            <th>@Html.Label("Review Frequency")</th>
+            <td>@Html.DropDownList("ReivewFrequency", null, new {id = "ReviewFrequency"})</td>
+        </tr>
+        <tr>
+            <th>@Html.Label("Sogeti Practitioner")</th>
+            <td>@Html.DropDownList("SogetiPractitioner", null, new {id = "SogetiPractitioner"})</td>
+            <td style="width:8%">&nbsp;</td>
+            <th>@Html.Label("Account Manager")</th>
+            <td>@Html.DropDownList("AccountManager", null, new {id = "AccountManager"})</td>
+        </tr>
+        <tr>
+            <th>@Html.Label("Delivery Manager")</th>
+            <td>@Html.DropDownList("DeliveryManager", null, new {id = "DeliveryManager"})</td>
+            <td style="width:8%">&nbsp;</td>
+            <th>@Html.Label("Administrator")</th>
+            <td>@Html.DropDownList("Administrator", null, new {id = "Administrator"})</td>
+        </tr>
+        <tr>
+            <th>@Html.Label("Start Date")</th>
+            <td><input type="text" name="ProjectStartDate" class="datepicker", id="ProjectStartDate"/></td>
+            <td style="width:8%">&nbsp;</td>
+            <th>@Html.Label("End Date")</th>
+            <td><input type="text" name="ProjectEndDate" class="datepicker", id="ProjectEndDate"/></td>
+        </tr>
+        <tr>
+            <th>@Html.Label("Revised Date")</th>
+            <td></td>
+            <td style="width:8%">&nbsp;</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <input type="submit" value="Update Project" class="roundedButton">
+}
+<script>
+    $(".datepicker").datepicker({ dateFormat: 'dd/mm/yy' });
+</script>

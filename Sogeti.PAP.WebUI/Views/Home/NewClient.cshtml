@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "New Client";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("AddNewClient", "Home", FormMethod.Post)) {
+<table class="roundedTable" style="width: 75%;">
+    <caption style="text-align:left"><h3>@ViewBag.Message</h3></caption>
+    <tr>
+        <td>@Html.Label("Name:")</td>
+        <td><input type="text" name="ClientName" placeholder="Enter new client's name"/></td>
+        
+    </tr>
+    <tr>
+        <td>@Html.Label("Address:")</td>
+        <td><textarea name="ClientAddress" placeholder="Enter new client's address"></textarea></td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Contact Number:")</td>
+        <td><input type="tel" name="ClientContactNumber" placeholder="Enter new client's contact number"/></td>
+    </tr>
+</table>
+    <input type="submit" value="Add Client" class="roundedButton">
+}
+
+
