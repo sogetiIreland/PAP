@@ -12,3 +12,8 @@ C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\
 C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\Sogeti.PAP\obj\Debug\Sogeti.PAP.dll
 C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\Sogeti.PAP\obj\Debug\Sogeti.PAP.pdb
 C:\Users\ababbasi\Documents\Sogeti\Project\New folder\Sogeti.PAP\PAP\Sogeti.PAP\Sogeti.PAP\obj\Debug\Sogeti.PAP.csprojResolveAssemblyReference.cache
+C:\Users\ababbasi\Documents\Sogeti\Projects\PAP\Sogeti.PAP\bin\Debug\Sogeti.PAP.dll
+C:\Users\ababbasi\Documents\Sogeti\Projects\PAP\Sogeti.PAP\bin\Debug\Sogeti.PAP.pdb
+C:\Users\ababbasi\Documents\Sogeti\Projects\PAP\Sogeti.PAP\obj\Debug\Sogeti.PAP.csprojResolveAssemblyReference.cache
+C:\Users\ababbasi\Documents\Sogeti\Projects\PAP\Sogeti.PAP\obj\Debug\Sogeti.PAP.dll
+C:\Users\ababbasi\Documents\Sogeti\Projects\PAP\Sogeti.PAP\obj\Debug\Sogeti.PAP.pdb
